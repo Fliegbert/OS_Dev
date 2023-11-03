@@ -3,6 +3,7 @@ ASM=nasm
 
 SRC_DIR=Bios_Bootloader_C
 MBR_DIR=Bios_Bootloader_C/mbr
+BIOS_INFO_DIR=Bios_Bootloader_C/boot_info
 
 SRCFILES := $(shell find $(PROJDIRS) -type f -name "\*.asm")
 INCFILES := $(shell find $(PROJDIRS) -type f -name "\*.inc")

@@ -1,11 +1,13 @@
+; Set execution mode, dont let assembler guess one
+BITS 16
 [ORG 0x7c00]
 
 %define ENDL 0x0D, 0x0A
 
-	jmp start
+; Set CS:IP with far jump and dont assume CS:IP
+start: jmp 0:entry
 
-start:
-	;; Setting up
+entry:
 
 	xor ax, ax
 	mov ds, ax
@@ -15,21 +17,20 @@ start:
 	mov gs, ax
 	mov sp, 0x7c00 ; Stack grows down
 	cld
-	
+			
 	mov [disk], dl
 
-
+	; Set up video mode
 	mov ah, 0x00
-        mov al, 0x0E
-        int 0x10
+	mov al, 0x0E
+	int 0x10
 	
 	call load_disk
 	
-	mov si, disk_success
+;	mov si, disk_success
 	call print
 	
 	jmp boot_info_gathering_start
-
 halt:
 	cli
 	hlt
@@ -38,6 +39,6 @@ halt:
 %include "mbr/include/print.inc"
 %include "mbr/include/disk.inc"
 
-disk_success		db "disk successful loaded", ENDL, 0
+;disk_success		db "disk successful loaded", ENDL, 0
 times 510-($-$$)	db 0
 dw 0xAA55
