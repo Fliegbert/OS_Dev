@@ -4,19 +4,19 @@ BITS 16
 ; http://www.petesqbsite.com/sections/tutorials/tuts/vbe3.pdf
 
 
-vesa_info_block:
-	.vbe_signature		db "VBE2"
-	.vbe_version		resw 1
-	.oem_str_ptr		resd 1
-	.capabilities		resd 1		; indicates support of spec. features graphical env.
-	.video_mode_ptr		resd 1		; vbe_far_ptr to video mode number list
-	.total_memory		resw 1		; maximum amount of memory available to frame buffer
-	.oem_software_rev	resw 1
-	.oem_vendor_name_ptr	resd 1
-	.oem_product_name_ptr	resd 1
-	.oem_product_rev_ptr	resd 1
-	.reserved		resb 222
-	.oem_data		resb 256
+;vesa_info_block:
+;	.vbe_signature		db "VBE2"
+;	.vbe_version		resw 1
+;	.oem_str_ptr		resd 1
+;	.capabilities		resd 1		; indicates support of spec. features graphical env.
+;	.video_mode_ptr		resd 1		; vbe_far_ptr to video mode number list
+;	.total_memory		resw 1		; maximum amount of memory available to frame buffer
+;	.oem_software_rev	resw 1
+;	.oem_vendor_name_ptr	resd 1
+;	.oem_product_name_ptr	resd 1
+;	.oem_product_rev_ptr	resd 1
+;	.reserved		resb 222
+;	.oem_data		resb 256
 
 vbe_mode_info:
 	.mode_attributes	resw 1
@@ -200,6 +200,19 @@ height_string                   db "height:", ENDL, 0
 bpp_string			db "bpp:"
 
 
+vesa_info_block:
+        .vbe_signature          db "VBE2"
+        .vbe_version            resw 1
+        .oem_str_ptr            resd 1
+        .capabilities           resd 1          ; indicates support of spec. features graphical env.
+        .video_mode_ptr         resd 1          ; vbe_far_ptr to video mode number list
+        .total_memory           resw 1          ; maximum amount of memory available to frame buffer
+        .oem_software_rev       resw 1
+        .oem_vendor_name_ptr    resd 1
+        .oem_product_name_ptr   resd 1
+        .oem_product_rev_ptr    resd 1
+        .reserved               resb 222
+        .oem_data               resb 256
 
 
 

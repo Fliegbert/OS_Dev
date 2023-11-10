@@ -1,3 +1,4 @@
+
 load_disk:
 	pusha
 
@@ -109,4 +110,4 @@ exit_disk_read:
 lba_error	db 'LBA is not supported', ENDL, 0
 disk_error	db 'Disk error', ENDL, 0
 disk		db 0x80
-extension_avai db 'INT 13 Extension is available', ENDL, 0
+extension_avai  db 'INT 13 Extension is available', ENDL, 0

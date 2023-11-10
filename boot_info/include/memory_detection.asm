@@ -1,6 +1,6 @@
 BITS 16
 
-mmap_ent equ 0x8000
+mmap_ent equ 0x8600
 
 detect_memory:
 	push si
@@ -148,7 +148,7 @@ detect_memory:
 		
 		.first_e820_call:
 			
-			mov di, 0x8004			;# edx gives the position of SMAP to bios
+			mov di, 0x8604			;# edx gives the position of SMAP to bios
 			xor ebx, ebx			;# bp will be used to store the entry count
 			xor bp, bp			;# carry set = error
 			mov edx, 0x534D4150		;# requesting 24 bytes with ecx	

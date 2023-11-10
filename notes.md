@@ -16,9 +16,9 @@ mapping:
 	map: ###################################################################################
 	     #       Bios Area			Stack Pointer		    Boot Sector        #
 	     #  0x00000000-0x000004FF  ..  0x00006c00-0x00007bff  ..  0x00007c00-0x00007e00  ..#
-	     #		Sector 2		Memory Map				       #
-	     #	0x00007e00-0x00008000  ..  0x00008000-0x00008094			       #
-	     #		EDBA								       #
+	     #		Sector 2		Memory Map		      Vesa	       #
+	     #	0x00007e00-0x00008000  ..  0x00008000-0x00008094  ..  0x00008094-0x00000000  ..#
+	     #  the memory map ?EBDA							       #
              #  0x00080000-0x0009FFFF  ..						       #
 	     ###################################################################################
 
@@ -35,15 +35,15 @@ Next Steps:
 	- enter long mode and pass control to kernel
 	
 	osdev
-	- Check presence of PCI, CPUID, MSRs
-	- Enable and confirm enabled A20 line
+	- Check presence of PCI, CPUID, MSRs	 
+	- Enable and confirm enabled A20 line	
 	- Load GDTR
-	- Inform BIOS of target processor mode
-	- Get memory map from BIOS
+	- Inform BIOS of target processor mode	
+	- Get memory map from BIOS				|
 	- Locate kernel in filesystem
 	- Allocate memory to load kernel image
 	- Load kernel image into buffer
-	- Enable graphics mode
+	- Enable graphics mode					|
 	- Check kernel image ELF headers
 	- Enable long mode, if 64-bit
 	- Allocate and map memory for kernel segments

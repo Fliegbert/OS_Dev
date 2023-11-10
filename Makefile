@@ -20,3 +20,9 @@ bootloader.bin: os.asm
 
 clean:
 	@rm *.bin
+
+#debug:
+	#@nasm os_debug.asm -f elf -g -o os_debug.elf
+	#@objcopy -O binary os_debug.elf os_debug.img
+	#@qemu -s -S -hda os_debug.img -boot a
+	#@gdb

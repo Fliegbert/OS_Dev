@@ -27,17 +27,14 @@ entry:
 	
 	call load_disk
 	
-;	mov si, disk_success
-	call print
-	
 	jmp boot_info_gathering_start
 halt:
 	cli
 	hlt
 	jmp halt
 
-%include "mbr/include/print.inc"
-%include "mbr/include/disk.inc"
+%include "mbr/include/print.asm"
+%include "mbr/include/disk.asm"
 
 ;disk_success		db "disk successful loaded", ENDL, 0
 times 510-($-$$)	db 0
