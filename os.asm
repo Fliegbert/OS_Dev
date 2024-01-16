@@ -1,5 +1,5 @@
 mbr_start:
-	times 90 db 0 ;fat32 filesystem
+	times 90 db 0 ;BPB here
 	%include "mbr/mbr.asm"
 mbr_end:
 

@@ -1,6 +1,6 @@
-BITS 16
+[BITS 16]
 
-mmap_ent equ 0x8600
+mmap_ent equ 0x9500
 
 detect_memory:
 	push si
@@ -148,7 +148,7 @@ detect_memory:
 		
 		.first_e820_call:
 			
-			mov di, 0x8604			;# edx gives the position of SMAP to bios
+			mov di, 0x9504			;# edx gives the position of SMAP to bios
 			xor ebx, ebx			;# bp will be used to store the entry count
 			xor bp, bp			;# carry set = error
 			mov edx, 0x534D4150		;# requesting 24 bytes with ecx	
@@ -199,7 +199,7 @@ detect_memory:
 			jne short .e820_loop ;.e820_loop		
 			
 		.e820_finished:
-			mov [mmap_ent], bp		;# mmap_ent = 0x8000
+			mov [mmap_ent], bp		;# mmap_ent = 0x9500
 			clc				;# bp = 2 bytes = infront of memory entries
 			jmp exit_detection
 
